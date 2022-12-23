@@ -1,161 +1,227 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Puzzlex</title>
+	<meta charset="UTF-8">
+	<title>Puzzlex</title>
 
-<script type="text/javascript"> <!-- Script-Bereich einleiten -->
-<!--                           /* HTML-Kommentar fuer Browser ohne JavaScript */
-
-var namen=new Array("bild0.jpg","bild1.jpg","bild2.jpg","bild3.jpg","bild4.jpg","bild5.jpg","bild6.jpg","bild7.jpg","bild8.jpg","bild9.jpg","bild10.jpg","bild11.jpg","bild12.jpg","bild13.jpg");
-  /* Array aller Bildernamen */
-var bilder=new Array();
-  /* Definition des Bilder-Arrays */
-  
-var teile =new Array("Bild1.png","Bild2.png","Bild3.png","Bild4.png","Bild5.png","Bild6.png","Bild7.png","Bild8.png","Bild9.png","Bild10.png","Bild11.png","Bild12.png","Bild13.png","Bild14.png","Bild15.png","Bild16.png","Bild17.png","Bild18.png","Bild19.png","Bild20.png","Bild21.png","Bild22.png","Bild23.png","Bild24.png","Bild25.png","Bild26.png","Bild27.png","Bild28.png","Bild29.png","Bild30.png","Bild31.png","Bild32.png","Bild33.png","Bild34.png","Bild35.png","Bild36.png","Bild37.png","Bild38.png","Bild39.png","Bild40.png","transparent.png");
-var puzzle=new Array();
-  /* Definition des Bilder-Arrays */
-  
-function lade()
-  /* Laedt die Bilder */
-{
-  var i;                     /* lokale Variablendeklaration */
-  for (i=0;i<14;i++)          /* Schleife: i=0..13 */
-  {
-    bilder[i]=new Image();   /* neues Image-Objekt erzeugen */
-    bilder[i].src=namen[i];  /* Quelldateiname des Bildes setzen */
-  }
-  
-  var p;                     /* lokale Variablendeklaration */
-  for (p=0;p<40;p++)          /* Schleife: i=0..13 */
-  {
-    puzzle[p]=new Image();   /* neues Image-Objekt erzeugen */
-    puzzle[p].src=teile[p];  /* Quelldateiname des Bildes setzen */
-	document.images[p].src=puzzle[p].src;	
-  }
-  
-}
-
-function zeige(nr)
-  /* zeigt ein Bild an */
-{
-  document.images[0].src=bilder[nr].src;
-    /* Bild austauschen */
-}
-
-    var clicks = 0;
-    function onClick() {
-
-		  var p;                     /* lokale Variablendeklaration */
-		  for (p=0;p<40;p++)          /* Schleife: i=0..13 */
-		  {
-			puzzle[p]=new Image();   /* neues Image-Objekt erzeugen */
-			puzzle[p].src=teile[p];  /* Quelldateiname des Bildes setzen */
-			document.images[p].src=puzzle[p].src;	
-		  }	
-	
-        clicks += 1;
-		if (clicks > 13) {
-			clicks = 0;
+	<noscript type="text/javascript"> <!-- Script-Bereich einleiten -->
+		<!--
+		/* HTML-Kommentar fuer Browser ohne JavaScript */
+		var namen = new Array("./img/Bild0.jpg", "./img/Bild1.jpg"
+		, "./img/Bild2.jpg", "./img/Bild3.jpg", "./img/Bild4.jpg", "./img/Bild5.jpg", "./img/Bild6.jpg"
+		, "./img/Bild7.jpg", "./img/Bild8.jpg", "./img/Bild9.jpg", "./img/Bild10.jpg", "./img/Bild11.jpg"
+		, "./img/Bild12.jpg", "./img/Bild13.jpg"); /* Array aller Bildernamen */ var bilder = new Array(); /* Definition
+		des Bilder-Arrays */ var teile = new Array("./img/Bild1.png", "./img/Bild2.png", "./img/Bild3.png"
+			, "./img/Bild4.png", "./img/Bild5.png", "./img/Bild6.png", "./img/Bild7.png", "./img/Bild8.png"
+			, "./img/Bild9.png", "./img/Bild10.png", "./img/Bild11.png", "./img/Bild12.png", "./img/Bild13.png"
+			, "./img/Bild14.png", "./img/Bild15.png", "./img/Bild16.png", "./img/Bild17.png", "./img/Bild18.png"
+			, "./img/Bild19.png", "./img/Bild20.png", "./img/Bild21.png", "./img/Bild22.png", "./img/Bild23.png"
+			, "./img/Bild24.png", "./img/Bild25.png", "./img/Bild26.png", "./img/Bild27.png", "./img/Bild28.png"
+			, "./img/Bild29.png", "./img/Bild30.png", "./img/Bild31.png", "./img/Bild32.png", "./img/Bild33.png"
+			, "./img/Bild34.png", "./img/Bild35.png", "./img/Bild36.png", "./img/Bild37.png", "./img/Bild38.png"
+			, "./img/Bild39.png", "./img/Bild40.png", "./img/transparent.png"); var puzzle = new Array(); /* Definition des
+		Bilder-Arrays */ function lade() /* Laedt die Bilder */ {
+			var i; /* lokale Variablendeklaration */ for (i = 0; i <
+				14; i++) /* Schleife: i=0..13 */ {
+					bilder[i] = new Image(); /* neues Image-Objekt erzeugen */
+				bilder[i].src = namen[i]; /* Quelldateiname des Bildes setzen */
+			} var p; /* lokale Variablendeklaration */ for
+				(p = 0; p < 40; p++) /* Schleife: i=0..13 */ {
+					puzzle[p] = new Image(); /* neues Image-Objekt erzeugen */
+				puzzle[p].src = teile[p]; /* Quelldateiname des Bildes setzen */ document.images[p].src = puzzle[p].src;
+			}
 		}
-        document.getElementById("clicks").innerHTML = clicks;
-		document.images[40].src=bilder[clicks].src;
-    };
+		function zeige(nr) /* zeigt ein Bild an */ { document.images[0].src = bilder[nr].src; /* Bild austauschen */ } var
+			clicks = 0; function onClick() {
+				var p; /* lokale Variablendeklaration */ for (p = 0; p < 40; p++) /* Schleife:
+		i=0..13 */ {
+					puzzle[p] = new Image(); /* neues Image-Objekt erzeugen */ puzzle[p].src = teile[p]; /* Quelldateiname
+		des Bildes setzen */ document.images[p].src = puzzle[p].src;
+				} clicks += 1; if (clicks > 13) {
+					clicks = 0;
+				}
+				document.getElementById("clicks").innerHTML = clicks;
+				document.images[40].src = bilder[clicks].src;
+			};
 
-	function aufdecken() {
-	
-		var j; 
-		var transparent = "transparent.png";
-		
-		for (j=0;j<40;j++) {        /* Schleife: i=0..13 */
-				document.images[j].src="transparent.png";
-		}
-	}
+		function aufdecken() {
 
-//-->                          <!-- HTML-Kommentarende -->
-</script>                      <!-- Script-Bereich beenden -->
+			var j;
+			var transparent = "./img/transparent.png";
 
-<style>
+			for (j = 0; j < 40; j++) { /* Schleife: i=0..13 */ document.images[j].src = "./img/transparent.png"; }
+		} //-->
+		<!--HTML - Kommentarende-->
+	</noscript> <!-- Script-Bereich beenden -->
 
-</style>
+	<style>
+
+	</style>
 </head>
 
-<body style="width=1000px; text-align: center;" onLoad="lade();">
+<body style="width:1000px; text-align: center;" onLoad="lade();">
 	<h1 style="font-family: sans-serif; color: #000;">Adonia Puzzle</h1>
-	
-<div id="puzzle" style="position: relative; top: 10px; left: 0px; width: 100%;">
-	
-	<div id="bild1" style="position: absolute; top: 0px; left: 47px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild1.png"></a></div>
-	<div id="bild2" style="position: absolute; top: 0px; left: 152px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild2.png"></a></div>
-	<div id="bild3" style="position: absolute; top: 0px; left: 235px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild3.png"></a></div>
-	<div id="bild4" style="position: absolute; top: 0px; left: 368px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild4.png"></a></div>
-	<div id="bild5" style="position: absolute; top: 0px; left: 476px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild5.png"></a></div>
-	<div id="bild6" style="position: absolute; top: 0px; left: 560px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild6.png"></a></div>
-	<div id="bild7" style="position: absolute; top: 0px; left: 693px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild7.png"></a></div>
-	<div id="bild8" style="position: absolute; top: 0px; left: 801px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild8.png"></a></div>
 
-	<div id="bild9" style="position: absolute; top: 87px; left: 47px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild9.png"></a></div>
-	<div id="bild10" style="position: absolute; top: 113px; left: 127px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild10.png"></a></div>
-	<div id="bild11" style="position: absolute; top: 87px; left: 235px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild11.png"></a></div>
-	<div id="bild12" style="position: absolute; top: 113px; left: 368px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild12.png"></a></div>
-	<div id="bild13" style="position: absolute; top: 87px; left: 476px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild13.png"></a></div>
-	<div id="bild14" style="position: absolute; top: 113px; left: 560px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild14.png"></a></div>
-	<div id="bild15" style="position: absolute; top: 87px; left: 693px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild15.png"></a></div>
-	<div id="bild16" style="position: absolute; top: 112px; left: 776px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild16.png"></a></div>
-	
-	<div id="bild17" style="position: absolute; top: 202px; left: 47px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild17.png"></a></div>
-	<div id="bild18" style="position: absolute; top: 228px; left: 152px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild18.png"></a></div>
-	<div id="bild19" style="position: absolute; top: 228px; left: 260px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild19.png"></a></div>
-	<div id="bild20" style="position: absolute; top: 228px; left: 343px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild20.png"></a></div>
-	<div id="bild21" style="position: absolute; top: 202px; left: 476px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild21.png"></a></div>
-	<div id="bild22" style="position: absolute; top: 202px; left: 584px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild22.png"></a></div>
-	<div id="bild23" style="position: absolute; top: 228px; left: 668px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild23.png"></a></div>
-	<div id="bild24" style="position: absolute; top: 202px; left: 801px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild24.png"></a></div>
-	
-	<div id="bild25" style="position: absolute; top: 344px; left: 47px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild25.png"></a></div>
-	<div id="bild26" style="position: absolute; top: 344px; left: 127px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild26.png"></a></div>
-	<div id="bild27" style="position: absolute; top: 318px; left: 260px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild27.png"></a></div>
-	<div id="bild28" style="position: absolute; top: 318px; left: 343px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild28.png"></a></div>
-	<div id="bild29" style="position: absolute; top: 318px; left: 451px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild29.png"></a></div>
-	<div id="bild30" style="position: absolute; top: 343px; left: 584px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild30.png"></a></div>
-	<div id="bild31" style="position: absolute; top: 344px; left: 693px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild31.png"></a></div>
-	<div id="bild31" style="position: absolute; top: 344px; left: 776px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild32.png"></a></div>
-	
-	<div id="bild33" style="position: absolute; top: 433px; left: 47px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild33.png"></a></div>
-	<div id="bild34" style="position: absolute; top: 433px; left: 152px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild34.png"></a></div>
-	<div id="bild35" style="position: absolute; top: 459px; left: 235px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild35.png"></a></div>
-	<div id="bild36" style="position: absolute; top: 433px; left: 368px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild36.png"></a></div>
-	<div id="bild37" style="position: absolute; top: 459px; left: 476px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild37.png"></a></div>
-	<div id="bild38" style="position: absolute; top: 458px; left: 584px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild38.png"></a></div>
-	<div id="bild39" style="position: absolute; top: 433px; left: 668px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild39.png"></a></div>
-	<div id="bild40" style="position: absolute; top: 459px; left: 801px;"><a href = "transparent.png" onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="Bild40.png"></a></div>
-	<div><img src="bild0.jpg" style="width: 860px; height: 575px;"/></div>
-</div>
-<p>
-Bild Nr.: <a id="clicks">0</a>&nbsp;&nbsp;
-<button type="button" style="border: 1px solid; background-color: withe; width:200px; text-align: center; color: withe; text-decoration: none;" onClick="aufdecken()">Alle aufdecken</button>&nbsp;&nbsp;
-<button type="button" style="border: 1px solid; background-color: withe; width:200px; text-align: center; color: withe; text-decoration: none;" onClick="lade()">Alle zudecken</button>&nbsp;&nbsp;
-<button type="button" style="border: 1px solid; background-color: withe; width:200px; text-align: center; color: withe; text-decoration: none;" onClick="onClick()">N&auml;chstes Bild</button>
-</p>
+	<div id="puzzle" style="position: relative; top: 10px; left: 0px; width: 100%;">
 
-<p>
-<img src="bild0.jpg" style="width: 0px; height: 0px;"/>
-<img src="bild1.jpg" style="width: 0px; height: 0px;"/>
-<img src="bild2.jpg" style="width: 0px; height: 0px;"/>
-<img src="bild3.jpg" style="width: 0px; height: 0px;"/>
-<img src="bild4.jpg" style="width: 0px; height: 0px;"/>
-<img src="bild5.jpg" style="width: 0px; height: 0px;"/>
-<img src="bild6.jpg" style="width: 0px; height: 0px;"/>
-<img src="bild7.jpg" style="width: 0px; height: 0px;"/>
-<img src="bild8.jpg" style="width: 0px; height: 0px;"/>
-<img src="bild9.jpg" style="width: 0px; height: 0px;"/>
-<img src="bild10.jpg" style="width: 0px; height: 0px;"/>
-<img src="bild11.jpg" style="width: 0px; height: 0px;"/>
-<img src="bild12.jpg" style="width: 0px; height: 0px;"/>
-<img src="bild13.jpg" style="width: 0px; height: 0px;"/>
-<img src="transparent.png" style="width: 0px; height: 0px;"/>
-</p>
-	
+		<div id="./img/Bild1" style="position: absolute; top: 0px; left: 47px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild1.png"></a>
+		</div>
+		<div id="./img/Bild2" style="position: absolute; top: 0px; left: 152px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild2.png"></a>
+		</div>
+		<div id="./img/Bild3" style="position: absolute; top: 0px; left: 235px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild3.png"></a>
+		</div>
+		<div id="./img/Bild4" style="position: absolute; top: 0px; left: 368px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild4.png"></a>
+		</div>
+		<div id="./img/Bild5" style="position: absolute; top: 0px; left: 476px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild5.png"></a>
+		</div>
+		<div id="./img/Bild6" style="position: absolute; top: 0px; left: 560px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild6.png"></a>
+		</div>
+		<div id="./img/Bild7" style="position: absolute; top: 0px; left: 693px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild7.png"></a>
+		</div>
+		<div id="./img/Bild8" style="position: absolute; top: 0px; left: 801px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild8.png"></a>
+		</div>
+
+		<div id="./img/Bild9" style="position: absolute; top: 87px; left: 47px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild9.png"></a>
+		</div>
+		<div id="./img/Bild10" style="position: absolute; top: 113px; left: 127px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild10.png"></a>
+		</div>
+		<div id="./img/Bild11" style="position: absolute; top: 87px; left: 235px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild11.png"></a>
+		</div>
+		<div id="./img/Bild12" style="position: absolute; top: 113px; left: 368px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild12.png"></a>
+		</div>
+		<div id="./img/Bild13" style="position: absolute; top: 87px; left: 476px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild13.png"></a>
+		</div>
+		<div id="./img/Bild14" style="position: absolute; top: 113px; left: 560px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild14.png"></a>
+		</div>
+		<div id="./img/Bild15" style="position: absolute; top: 87px; left: 693px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild15.png"></a>
+		</div>
+		<div id="./img/Bild16" style="position: absolute; top: 112px; left: 776px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild16.png"></a>
+		</div>
+
+		<div id="./img/Bild17" style="position: absolute; top: 202px; left: 47px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild17.png"></a>
+		</div>
+		<div id="./img/Bild18" style="position: absolute; top: 228px; left: 152px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild18.png"></a>
+		</div>
+		<div id="./img/Bild19" style="position: absolute; top: 228px; left: 260px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild19.png"></a>
+		</div>
+		<div id="./img/Bild20" style="position: absolute; top: 228px; left: 343px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild20.png"></a>
+		</div>
+		<div id="./img/Bild21" style="position: absolute; top: 202px; left: 476px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild21.png"></a>
+		</div>
+		<div id="./img/Bild22" style="position: absolute; top: 202px; left: 584px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild22.png"></a>
+		</div>
+		<div id="./img/Bild23" style="position: absolute; top: 228px; left: 668px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild23.png"></a>
+		</div>
+		<div id="./img/Bild24" style="position: absolute; top: 202px; left: 801px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild24.png"></a>
+		</div>
+
+		<div id="./img/Bild25" style="position: absolute; top: 344px; left: 47px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild25.png"></a>
+		</div>
+		<div id="./img/Bild26" style="position: absolute; top: 344px; left: 127px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild26.png"></a>
+		</div>
+		<div id="./img/Bild27" style="position: absolute; top: 318px; left: 260px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild27.png"></a>
+		</div>
+		<div id="./img/Bild28" style="position: absolute; top: 318px; left: 343px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild28.png"></a>
+		</div>
+		<div id="./img/Bild29" style="position: absolute; top: 318px; left: 451px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild29.png"></a>
+		</div>
+		<div id="./img/Bild30" style="position: absolute; top: 343px; left: 584px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild30.png"></a>
+		</div>
+		<div id="./img/Bild31" style="position: absolute; top: 344px; left: 693px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild31.png"></a>
+		</div>
+		<div id="./img/Bild31" style="position: absolute; top: 344px; left: 776px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild32.png"></a>
+		</div>
+
+		<div id="./img/Bild33" style="position: absolute; top: 433px; left: 47px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild33.png"></a>
+		</div>
+		<div id="./img/Bild34" style="position: absolute; top: 433px; left: 152px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild34.png"></a>
+		</div>
+		<div id="./img/Bild35" style="position: absolute; top: 459px; left: 235px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild35.png"></a>
+		</div>
+		<div id="./img/Bild36" style="position: absolute; top: 433px; left: 368px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild36.png"></a>
+		</div>
+		<div id="./img/Bild37" style="position: absolute; top: 459px; left: 476px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild37.png"></a>
+		</div>
+		<div id="./img/Bild38" style="position: absolute; top: 458px; left: 584px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild38.png"></a>
+		</div>
+		<div id="./img/Bild39" style="position: absolute; top: 433px; left: 668px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild39.png"></a>
+		</div>
+		<div id="./img/Bild40" style="position: absolute; top: 459px; left: 801px;"><a href="./img/transparent.png"
+				onclick="this.firstChild.src=this.href; return false;" onkeypress=""><img src="./img/Bild40.png"></a>
+		</div>
+		<div><img src="./img/Bild0.jpg" style="width: 860px; height: 575px;" /></div>
+	</div>
+	<p>
+		Bild Nr.: <a id="clicks">0</a>&nbsp;&nbsp;
+		<button type="button"
+			style="border: 1px solid; background-color: withe; width:200px; text-align: center; color: withe; text-decoration: none;"
+			onClick="aufdecken()">Alle aufdecken</button>&nbsp;&nbsp;
+		<button type="button"
+			style="border: 1px solid; background-color: withe; width:200px; text-align: center; color: withe; text-decoration: none;"
+			onClick="lade()">Alle zudecken</button>&nbsp;&nbsp;
+		<button type="button"
+			style="border: 1px solid; background-color: withe; width:200px; text-align: center; color: withe; text-decoration: none;"
+			onClick="onClick()">N&auml;chstes Bild</button>
+	</p>
+
+	<p>
+		<img src="./img/Bild0.jpg" style="width: 0px; height: 0px;" />
+		<img src="./img/Bild1.jpg" style="width: 0px; height: 0px;" />
+		<img src="./img/Bild2.jpg" style="width: 0px; height: 0px;" />
+		<img src="./img/Bild3.jpg" style="width: 0px; height: 0px;" />
+		<img src="./img/Bild4.jpg" style="width: 0px; height: 0px;" />
+		<img src="./img/Bild5.jpg" style="width: 0px; height: 0px;" />
+		<img src="./img/Bild6.jpg" style="width: 0px; height: 0px;" />
+		<img src="./img/Bild7.jpg" style="width: 0px; height: 0px;" />
+		<img src="./img/Bild8.jpg" style="width: 0px; height: 0px;" />
+		<img src="./img/Bild9.jpg" style="width: 0px; height: 0px;" />
+		<img src="./img/Bild10.jpg" style="width: 0px; height: 0px;" />
+		<img src="./img/Bild11.jpg" style="width: 0px; height: 0px;" />
+		<img src="./img/Bild12.jpg" style="width: 0px; height: 0px;" />
+		<img src="./img/Bild13.jpg" style="width: 0px; height: 0px;" />
+		<img src="./img/transparent.png" style="width: 0px; height: 0px;" />
+	</p>
+
 </body>
 
-</html> 
+</html>
